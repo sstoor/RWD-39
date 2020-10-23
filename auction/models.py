@@ -17,9 +17,9 @@ class Watch(db.Model):
     name = db.Column(db.String(80))
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
+    comments = db.relationship('Comment', backref='watch')
+    bids = db.relationship('Bid', backref='watch')
 
-
-    comments = db.relationship('Comment', backref='destination')
     
     def __repr__(self): #string print method
         return "<Name: {}>".format(self.name) 
@@ -33,9 +33,22 @@ class Comment(db.Model):
     #add the foreign keys
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     destination_id = db.Column(db.Integer,
-    db.ForeignKey('destinations.id'))
-
-
-    
+    db.ForeignKey('watches.id'))
+     
     def __repr__(self):
         return "<Comment: {}>".format(self.text)
+
+
+class Bid(db.Model):
+    __tablename__ = 'bids'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(400))
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    #add the foreign keys
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    destination_id = db.Column(db.Integer,
+    db.ForeignKey('watches.id'))
+
+
+    def __repr__(self):
+        return "<Bid: {}>".format(self.text)
