@@ -1,5 +1,5 @@
 #import flask - from the package import class
-from flask import Flask 
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -41,7 +41,12 @@ def create_app():
 
     from . import auth
     app.register_blueprint(auth.bp)
-    
+
+    # Register error handler
+    @app.errorhandler(Exception)
+    def handle_exception(e):
+        return render_template('error.html', title='Page Not Found', msg=str(e))
+
     return app
 
 
