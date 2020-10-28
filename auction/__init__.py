@@ -42,10 +42,20 @@ def create_app():
     from . import auth
     app.register_blueprint(auth.bp)
 
-    # Register error handler
-    @app.errorhandler(Exception)
-    def handle_exception(e):
+    # Handle 404 Error
+    @app.errorhandler(404)
+    def handle_404_exception(e):
         return render_template('error.html', title='Page Not Found', msg=str(e))
+
+    # Handle 500 Error
+    @app.errorhandler(500)
+    def handle_500_exception(e):
+        return render_template('error.html', title="This page isn't working", msg=str(e))
+
+    # Register general error handler
+    @app.errorhandler(Exception)
+    def handle__exception(e):
+        return render_template('error.html', title='Something unexpected has happened', msg=str(e))
 
     return app
 
