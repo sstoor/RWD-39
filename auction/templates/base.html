@@ -1,15 +1,18 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 
 <head>
-  <!-- Title of the app-->
-  <title>Find Watches</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
 
   <style>
     .content {
-
       background: black;
       width: 50%;
       padding: 40px;
@@ -18,18 +21,14 @@
 
     body {
       background-image: linear-gradient(to right, #7a7a7a, #8b4f00, #524e4e);
-      ;
-
     }
   </style>
-
-
-
 
 </head>
 
 <body>
 
+  <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="homepage.html"><img src="../static/Images/logo/35132-removebg-preview.png"
@@ -58,15 +57,17 @@
       </div>
     </nav>
 
-
     {% block header %}
     {% endblock %}
 
+  </header>
 
+  <main>
 
+    {% block content %}
+    {% endblock %}
 
-  {% block content %}
-  {% endblock %}
+  </main>
 
   <footer class="footer">
     <div class="text-center py-2 bg-light">
