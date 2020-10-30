@@ -15,9 +15,13 @@ def index():
 def home():
     return render_template('homepage.html')
 
-@bp.route('/create')
-def itemcreation():
-    return render_template('itemcreation.html')
+@bp.route('/create', methods = ['GET', 'POST'])
+def create():
+    print('Method type: ', request.method)
+    form = DestinationForm()
+    if form.validate_on_submit():
+        print('Successfully created new travel destination', 'success')
+    return render_template('destinations/create.html', form=form)
 
 @bp.route('/itemdetails')
 def itemdetails():
