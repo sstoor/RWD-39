@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 
+
 db=SQLAlchemy()
 
 #create a function that creates a web application
@@ -12,6 +13,8 @@ db=SQLAlchemy()
 def create_app():
   
     app=Flask(__name__)  # this is the name of the module/package that is calling this app
+    from . import Itemcreate
+    app.register_blueprint(itemcreate_bp)
     app.debug=True
     app.secret_key='utroutoru'
     #set the app configuration data 
@@ -40,9 +43,8 @@ def create_app():
     from . import views
     app.register_blueprint(views.bp)
 
-    from . import Itemcreate
-    app.register_blueprint(auth.bp)
-    app.register_blueprint(ItemcreateForm.bp)
+    
+   
     # Register error handler
     @app.errorhandler(Exception)
     def handle_exception(e):

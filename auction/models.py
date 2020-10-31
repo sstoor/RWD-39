@@ -26,7 +26,7 @@ class Watch(db.Model):
 
 class Itemcreate(db.Model):
     __tablename__ = 'Items'
-    id = db.relationship('id', backref='Items')
+    id =  db.Column(db.Integer, primary_key=True)
     make = db.Column(db.String(10))
     model = db.Column(db.String(10))
     movement = db.Column(db.String(10))
