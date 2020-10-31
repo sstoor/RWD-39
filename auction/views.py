@@ -14,14 +14,6 @@ def index():
 def home():
     return render_template('homepage.html')
 
-@bp.route('/addwatches', methods = ['GET', 'POST'])
-def create():
-    print('Method type: ', request.method)
-    form = ItemcreateForm() 
-    if form.validate_on_submit():
-        print('Successfully added Item', 'success')
-    return render_template('destinations/addwatches.html', form=form)
-
 @bp.route('/itemdetails')
 def itemdetails():
     return render_template('itemdetails.html')

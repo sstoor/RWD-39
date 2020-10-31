@@ -18,4 +18,4 @@ def create():
     if form.validate_on_submit():
         print('Successfully added your item', 'success')
 
-    return render_template('auction/addwatches.html', form=form)
+    return render_template('addwatches.html', form=form)
