@@ -1,4 +1,3 @@
-from flask import Blueprint
 from flask import Blueprint, render_template, url_for, redirect
 from flask import request
 from flask import session
