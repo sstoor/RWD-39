@@ -8,6 +8,7 @@ from .models import User
 from flask_sqlalchemy import SQLAlchemy
 from .forms import LoginForm,RegisterForm
 from flask_login import login_user, login_required, logout_user
+from auction.forms import ItemcreateFrom    
 from . import db
 
 
@@ -98,3 +99,4 @@ def register():
     
     
     return render_template('authentication/register.html', form=register_form_instance)
+

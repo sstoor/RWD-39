@@ -24,6 +24,17 @@ class Watch(db.Model):
     def __repr__(self): #string print method
         return "<Name: {}>".format(self.name) 
 
+class Itemcreate(db.Model):
+    __tablename__ = 'Items'
+    id = db.relationship('id', backref='Items')
+    make = db.Column(db.String(10))
+    model = db.Column(db.String(10))
+    movement = db.Column(db.String(10))
+    starting_bid = db.Column(db.String(10))
+    image = db.Column(db.String(400))
+    description = db.Column(db.String(400))
+    year = db.Column(db.String(10))
+    condition = db.Column(db.String(10))
 
 class Comment(db.Model):
     __tablename__ = 'comments'
