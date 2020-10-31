@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from auction.forms import ItemcreateFrom
 
 db=SQLAlchemy()
 
@@ -41,7 +42,7 @@ def create_app():
 
     from . import auth
     app.register_blueprint(auth.bp)
-
+    app.register_blueprint(ItemcreateFrom.bp)
     # Register error handler
     @app.errorhandler(Exception)
     def handle_exception(e):

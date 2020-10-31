@@ -27,3 +27,19 @@ class RegisterForm(FlaskForm):
 
     #submit button
     submit = SubmitField("Register")
+
+    class ItemcreateForm(FlaskForm):
+  make = TextAreaField('Make', validators=[InputRequired()])
+  model = TextAreaField('Model', validators=[InputRequired()])
+  movement = TextAreaField('Movement', validators=[InputRequired()])
+  starting_bid = TextAreaField('Starting Bid', validators=[InputRequired()])
+  year = TextAreaField('Year', validators=[InputRequired()])
+  condition = TextAreaField('Condition', validators=[InputRequired()])
+  description = TextAreaField('Description', validators=[InputRequired()])
+  # adding two validators, one to ensure input is entered and other to check if the 
+  #description meets the length requirements
+  image = StringField('Add Image', validators=[InputRequired()])
+  submit = SubmitField("Create")
+  class CommentForm(FlaskForm):
+  text = TextAreaField('Comment', [InputRequired()])
+  submit = SubmitField('Create')
