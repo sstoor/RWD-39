@@ -2,6 +2,7 @@ from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 )
 from .models import User
+from .models import Itemcreate
 from flask_sqlalchemy import SQLAlchemy
 from .forms import ItemcreateForm    
 from . import db
