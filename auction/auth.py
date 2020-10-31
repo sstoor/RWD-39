@@ -12,8 +12,6 @@ from auction.forms import ItemcreateForm
 from . import db
 
 
-#create a blueprint
-bp = Blueprint('auth', __name__)
 
 
 # this is the hint for a login function
