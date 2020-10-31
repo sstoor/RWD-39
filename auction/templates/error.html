@@ -1,8 +1,41 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block header %}
 
-<h1>{{ title }}</h1>
-<p>{{ msg }}</p>
+<style>
+    
+    .row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 80px;
+    }
+
+    #error-msg {
+        margin: 25px;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div id="error-title">
+        <h1>{{ title }}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div id="error-msg">
+        <h4>{{ msg }}</h4>
+    </div>
+</div>
+
 
 {% endblock %}
