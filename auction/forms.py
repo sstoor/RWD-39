@@ -41,7 +41,7 @@ class ItemcreateForm(FlaskForm):
 		description = TextAreaField('Description', validators=[InputRequired()])
 		# adding two validators, one to ensure input is entered and other to check if the 
 		# description meets the length requirements
-		image = StringField('Add Image', validators=[InputRequired()])
+		image = FileField('Destination Image', validators=[FileRequired(message='Image can not be empty'), FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
 		submit = SubmitField("Create")
 
 class CommentForm(FlaskForm):
