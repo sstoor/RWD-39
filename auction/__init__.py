@@ -13,8 +13,7 @@ db=SQLAlchemy()
 def create_app():
   
     app=Flask(__name__)  # this is the name of the module/package that is calling this app
-    from . import Itemcreate
-    app.register_blueprint(Itemcreate_bp)
+   
     app.debug=True
     app.secret_key='utroutoru'
     #set the app configuration data 
@@ -43,7 +42,9 @@ def create_app():
     from . import views
     app.register_blueprint(views.bp)
 
-    
+    def create_app():
+        app= Flask(__name__)
+        app.register_blueprint(view.blueprint)
    
     # Register error handler
     @app.errorhandler(Exception)
