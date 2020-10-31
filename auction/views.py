@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, url_for, redirect
 from flask import request
 from flask import session
+from .models import Watch
 
 
 bp = Blueprint('main', __name__)
@@ -28,8 +29,8 @@ def search():
     if request.args['search']:
         dest = "%" + request.args['search'] + '%'
          #use filter and like function to search for matching destinations
-        destinations = Destination.query.filter(Destination.name.like(dest)).all()
+        watches = Watch.query.filter(Watch.name.like(dest)).all()
         #render index.html with few destinations
-        return render_template('index.html', destinations=destinations)
+        return render_template('index.html', watches=watches)
     else:
         return redirect(url_for('main.index'))

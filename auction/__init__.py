@@ -31,6 +31,7 @@ def create_app():
 
     #create a user loader function takes userid and returns User
     #from .models import User  # importing here to avoid circular references
+    from .models import User
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
@@ -39,6 +40,9 @@ def create_app():
     # a commonly used practice.
     from . import views
     app.register_blueprint(views.bp)
+
+
+
 
     from . import Itemcreate
     app.register_blueprint(Itemcreate.itemcreate_bp)
