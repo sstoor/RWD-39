@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from auction.forms import ItemcreateFrom    
 from . import db
 #create a blueprint for iitem creation
-itemcreate_bp = Blueprint('Itemcreate', __name__)
+Itemcreate_bp = Blueprint('Itemcreate', __name__)
 @bp.route('/addwatches', methods = ['GET', 'POST'])
 def create():
 print('Method type: ', request.method)
