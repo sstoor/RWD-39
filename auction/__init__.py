@@ -12,8 +12,6 @@ db=SQLAlchemy()
 def create_app():
   
     app=Flask(__name__)  # this is the name of the module/package that is calling this app
-    from . import Itemcreate
-    app.register_blueprint(itemcreate_bp)
     app.debug=True
     app.secret_key='utroutoru'
     #set the app configuration data 
@@ -41,6 +39,9 @@ def create_app():
     # a commonly used practice.
     from . import views
     app.register_blueprint(views.bp)
+
+    from . import Itemcreate
+    app.register_blueprint(Itemcreate.itemcreate_bp)
 
     from . import auth
     app.register_blueprint(auth.bp)
