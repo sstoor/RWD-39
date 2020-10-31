@@ -1,24 +1,33 @@
 {% extends 'base.html' %}
 
+
+{% block head %}
+
 <head>
-  
+
   <style>
-    .content {
-
-      background: black;
-      width: 50%;
-      padding: 40px;
-      margin: 100px auto;
+    
+    #post-review {
+      margin: 25px;
+      margin-top: 40px;
+      margin-left: 100px;
+      width: 100%;
+      text-align: center;
     }
 
-    body {
-      background-image: linear-gradient(to right, #7a7a7a, #8b4f00, #524e4e);
-      ;
-
+    #post-btn {
+      margin-top: 10px;
     }
+
+    #user-reviews {
+      margin-bottom: 10px;
+    }
+
   </style>
 
 </head>
+
+{% endblock %}
 
 {% block content %}
 
@@ -27,7 +36,7 @@
   <div class="row">
 
     <!-- Container for the image gallery -->
-    <div class=" col-lg-5 col-md-10 ">
+    <div class="col-md-10 col-lg-5">
       <div class="slider-holder">
         <span id="slider-image-1"></span>
         <span id="slider-image-2"></span>
@@ -47,7 +56,7 @@
     </div>
 
     <!-- Description -->
-    <div class="col-md-3 col-lg-2">
+    <div class="col-md-3 col-lg-4">
       <div class="myBox">
         <font color="white">Specifications: <br><br>Make: Rolex<br> Model: Submariner <br> Year: 2015<br> Condition:
           used<br> Movement: Automatic<br><br> Description:<br>
@@ -91,14 +100,56 @@
 </div>
 
 <!-- Row for posting review-->
-<div class="container-fluid">
-  <div class="row">
-    
+<div class="row" id="post-review">
+  <div class="col-lg-10">
+    <form>
+      <div class="form-group">
+        <textarea class="form-control" id="review-text-area" rows="3"> Write Something... </textarea>
+
+        <a href="#" class="btn btn-success" id="post-btn">Post Review</a>
+      </div>
+    </form>
   </div>
 </div>
 
 <!-- Row for reviews -->
-<div class="row">
+<div class="row" id="user-reviews">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">
+        Reviews:
+      </div>
+
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Great Seller, bought a genuine rolex and am happy with the purchase, quick delievery and Item as explained.
+          </p>
+          <footer class="blockquote-footer">User knightrider3 <cite title="Source Title">10/08/2020</cite></footer>
+        </blockquote>
+
+        <a href="#" class="btn btn-dark">Post a review</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-header">
+        Reviews:
+      </div>
+
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Great Seller, bought a genuine rolex and am happy with the purchase, quick delievery and Item as explained.
+          </p>
+          <footer class="blockquote-footer">User knightrider3 <cite title="Source Title">10/08/2020</cite></footer>
+        </blockquote>
+
+        <a href="#" class="btn btn-dark">Post a review</a>
+      </div>
+    </div>
+  </div>
+
   <div class="col-md-3">
     <div class="card">
       <div class="card-header">
@@ -118,4 +169,4 @@
   </div>
 
 
-{% endblock %}
+  {% endblock %}
