@@ -1,4 +1,4 @@
-from flask import ( 
+from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 )
 from .models import User
@@ -8,7 +8,8 @@ from . import db
 
 #create a blueprint for iitem creation
 itemcreate_bp = Blueprint('Itemcreate', __name__)
-@bp.route('/addwatches', methods = ['GET', 'POST'])
+
+@bp.route('/addwatches', methods=['GET', 'POST'])
 def create():
     print('Method type: ', request.method)
     form = ItemcreateForm() 
