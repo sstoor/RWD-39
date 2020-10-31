@@ -71,14 +71,21 @@
   <div class="col-lg-3">
 
   </div>
-  <div class="col-md-4 col-lg-2">
-    <input class="form-control" id="ex1" type="text" placeholder="Make">
+  <div class="col-md-2 col-lg-1">
+
+  </div>
+  <div class="col-md-4">
+    <div >
+      <form class="form-inline d-flex flex-nowrap" action="{{url_for('main.index')}}">
+        <input type="text" name="search" class="form-control flex-grow-1 my-1 mr-sm-2" placeholder="search watches by name">
+        <button type="submit" class="flex-shrink-1 btn btn-light my-1">Search</button>
+      </form>
+
+
+    </div>
   </div>
   <div class="col-md-4 col-lg-2">
-    <input class="form-control" id="ex1" type="text" placeholder="Model">
-  </div>
-  <div class="col-md-4 col-lg-2">
-    <input class="form-control" id="ex1" type="text" placeholder="Year">
+
   </div>
 </div>
 
@@ -92,10 +99,10 @@
   <div class="col-lg-4"> </div>
 
   <div class="col-md-4 col-lg-2">
-    <input class="form-control" id="ex1" type="text" placeholder="condtion">
+
   </div>
   <div class="col-md-4 col-lg-2">
-    <input class="form-control" id="ex1" type="text" placeholder="Movement">
+
   </div>
 </div>
 
@@ -109,7 +116,7 @@
   <div class="col-lg-5"> </div>
 
   <div class="col-md-4 col-lg-2">
-    <a href="itemdetails" class="btn btn-dark btn-lg" role="button">Search for Watches</a>
+    
   </div>
 
 </div>
@@ -151,4 +158,4 @@
 
   </div>
 
-{% endblock %}
+  {% endblock %}
