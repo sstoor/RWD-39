@@ -136,7 +136,7 @@
 <div class="row">
 
 
-  <div class="col-lg-2 col-5">
+<!--   <div class="col-lg-2 col-5">
     <img src="img/images1/rolex3.jpg" class="img-fluid" alt="Responsive image" style="width: 280px; padding: 20px;">
 
   </div>
@@ -154,7 +154,26 @@
   </div>
   <div class="col-lg-2 col-5">
     <img src="img/images1/plus-circle1.png" class="img-fluid" alt="Responsive image"
-      style="width: 280px; padding: 20px;">
+      style="width: 280px; padding: 20px;"> -->
+
+
+      <div class="card-deck mb-3">
+        {% for Items in Items %}
+        <div class="card">
+          <img class="card-img-top" src="{{Items.image}}" alt="{{Items.Make}}">
+          <div class="card-body">
+            <h5 class="card-title">{{Items.make}}</h5>
+            <p class="card-text">{{Items.description}}</p>
+            <a href="{{url_for('destination.show', id=destinations.id)}}" class="btn btn-danger">View Details</a>
+            
+            <p class="card-text"><small class="text-muted">{{Items.comments|length}} Comment(s)</small></p>
+            
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
 
   </div>
 
