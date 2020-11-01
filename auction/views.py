@@ -19,7 +19,7 @@ def search():
     if request.args['search']:
         watc = "%" + request.args['search'] + '%'
          #use filter and like function to search for matching destinations
-        Items = Itemcreate.query.filter(Itemcreate.name.like(watc)).all()
+        Items = Itemcreate.query.filter(Itemcreate.make.like(watc)).all()
         #render index.html with few destinations
         return render_template('homepage.html', Items=Items)
     else:
