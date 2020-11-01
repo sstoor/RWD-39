@@ -13,6 +13,9 @@ import os
 #create a blueprint for iitem creation
 itemcreate_bp = Blueprint('Itemcreate', __name__)
 
+#@itemcreate_bp.route('/<id>')
+#def show(id):
+
 
 
 def check_upload_file(form):
