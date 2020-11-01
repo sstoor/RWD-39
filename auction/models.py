@@ -32,10 +32,12 @@ class Itemcreate(db.Model):
     model = db.Column(db.String(10))
     movement = db.Column(db.String(10))
     starting_bid = db.Column(db.String(10))
+    last_bid = db.Column(db.String(10))
     image = db.Column(db.String(400))
     description = db.Column(db.String(400))
     year = db.Column(db.String(10))
     condition = db.Column(db.String(10))
+    comments = db.relationship('Comment', backref='Items')
 
     def __repr__(self): 
         return "<Make: {}>".format(self.make)
@@ -48,8 +50,8 @@ class Comment(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.now())
     # add the foreign keys
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    destination_id = db.Column(db.Integer,
-                               db.ForeignKey('watches.id'))
+    watch_id = db.Column(db.Integer,
+                               db.ForeignKey('Items.id'))
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block head %}
 
 <head>
 
   <style>
-
     .image-holder {
       display: flex;
       justify-content: center;
@@ -28,7 +28,6 @@
       justify-content: center;
       margin-bottom: 25px;
     }
-
   </style>
 
 </head>
@@ -42,14 +41,14 @@
 <div class="container-fluid">
   <div class="row">
 
-    
+
     <!-- Container for the image gallery -->
     <div class="col-md-10 col-lg-5">
       <div class="slider-holder">
-        
+
         <span id="slider-image-1"></span>
         <div class="image-holder">
-          <img src= "{{watch.image}}" class="slider-image" />
+          <img src="{{watch.image}}" class="slider-image" />
         </div>
       </div>
     </div>
@@ -57,7 +56,8 @@
     <!-- Description -->
     <div class="col-md-3 col-lg-4">
       <div class="myBox">
-        <font color="white">Specifications: <br><br>Make: {{watch.make}} <br> Model: {{watch.model}} <br> Year: {{watch.year}} <br> Condition: {{watch.condition}}
+        <font color="white">Specifications: <br><br>Make: {{watch.make}} <br> Model: {{watch.model}} <br> Year:
+          {{watch.year}} <br> Condition: {{watch.condition}}
           <br> Movement: {{watch.movement}} <br><br> Description: {{watch.description}}<br>
         </font>
       </div>
@@ -73,7 +73,9 @@
         <div class="card-body">
           <blockquote class="blockquote mb-0">
             <p>Auction ends in:<br> <!-- created_at -->
-              <font color="red">1d 11h 53m</font> <br><br>Starting Bid: {{watch.starting_bid}} <!-- starting bid--> <br> Last Bid: $2,675 <!-- last bid --><br><cite>
+              <font color="red">1d 11h 53m</font> <br><br>Starting Bid: {{watch.starting_bid}}
+              <!-- starting bid--> <br> Last Bid: $2,675
+              <!-- last bid --><br><cite>
                 <font size="2" color="black">-placed by user andy88 at 21:33</font>
               </cite>
             </p>
@@ -85,7 +87,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 
@@ -105,6 +106,10 @@
   </div>
 </div>
 
+
+{{wtf.quick_form(form, "/watch/{0}/comment".format(1))}}
+
+{% for comment in watch.comments %}
 <!-- Row for reviews -->
 <div class="row" id="user-reviews">
   <div class="col-md-3">
@@ -115,46 +120,13 @@
 
       <div class="card-body">
         <blockquote class="blockquote mb-0">
-          <p>Great Seller, bought a genuine rolex and am happy with the purchase, quick delievery and Item as explained.
-          </p>
-          <footer class="blockquote-footer">User knightrider3 <cite title="Source Title">10/08/2020</cite></footer>
+          <p>{{comment.text}}</p>
+          <footer class="blockquote-footer">User: {{comment.user}} <cite title="Source Title">{{created_at}}</cite>
+          </footer>
         </blockquote>
       </div>
     </div>
   </div>
-
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-header">
-        Reviews:
-      </div>
-
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>Great Seller, bought a genuine rolex and am happy with the purchase, quick delievery and Item as explained.
-          </p>
-          <footer class="blockquote-footer">User knightrider3 <cite title="Source Title">10/08/2020</cite></footer>
-        </blockquote>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-header">
-        Reviews:
-      </div>
-
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>Great Seller, bought a genuine rolex and am happy with the purchase, quick delievery and Item as explained.
-          </p>
-          <footer class="blockquote-footer">User knightrider3 <cite title="Source Title">10/08/2020</cite></footer>
-        </blockquote>
-
-      </div>
-    </div>
-  </div>
-</div>
+  {% endfor %}
 
   {% endblock %}
