@@ -1,2 +1,2 @@
 pip freeze > requirements.txt
-web: gunicorn -w 2 'travel:create_app()'
+web: gunicorn -w 2 'auction:create_app()'
