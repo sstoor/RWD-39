@@ -34,3 +34,5 @@ def index():
 def watchlist():
     return render_template('watchlist.html')
 
+
+

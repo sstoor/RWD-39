@@ -164,7 +164,7 @@
           <div class="card-body">
             <h5 class="card-title">{{Items.make}}</h5>
             <p class="card-text">{{Items.description}}</p>
-            <a href="itemdetails" class="btn btn-danger">View Details</a>
+            <a href="{{url_for('watch.itemdetails', id=Items.id)}}" class="btn btn-danger">View Details</a>
             
             <p class="card-text"><small class="text-muted">{{Items.comments|length}} Comment(s)</small></p>
             <p class="card-text"><small class="text-muted">{{Items.bids|length}} Bid(s)</small></p>

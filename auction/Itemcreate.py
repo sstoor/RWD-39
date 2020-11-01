@@ -53,3 +53,26 @@ def create():
 
     else:
         return render_template('addwatches.html', form=form)
+
+
+@itemcreate_bp.route('/<id>/comment', methods = ['GET', 'POST'])
+@login_required
+def comment(id):
+    form = CommentForm()
+    #get the destination object associated to the page and the comment
+    destination_obj = Itemcreate.query.filter_by(id=id).first()
+    
+    if form.validate_on_submit():
+        #read the comment from the form
+        comment = Comment(text=form.text.data, 
+        destination=destination_obj, user = current_user)
+        #here the back-referencing works - comment.destination is set
+        # # and the link is created
+        #db.session.add(comment)
+        db.session.commit()
+        
+        
+        
+        print('Your comment has been added', 'success')
+    # using redirect sends a GET request to destination.show
+    return redirect(url_for('destination.show', id=id))
