@@ -39,7 +39,7 @@ def create():
         Item = ItemcreateForm(make=form.make.data, description=form.description.data, 
                                      image=db_file_path, model=form.model.data, 
                                      movement=form.movement.data, year=form.year.data, 
-                                     condition=form.condition.data)
+                                     condition=form.condition.data, starting_bid=form.starting_bid.data)
         
         db.session.add(Item)
         db.session.commit()
