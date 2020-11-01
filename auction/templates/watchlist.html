@@ -1,3 +1,6 @@
+{% extends 'base.html'%}
+
+{% block header %}
 <!doctype html>
 <html lang="en">
 
@@ -42,38 +45,15 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
 
+  {% endblock %}
 
-
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="homepage.html"><img src="../static/Images/logo/35132-removebg-preview.png"
-        style="max-height: 50px; max-width: 50px;" /> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-      <span class="navbar-toggler-icon"></span>
-
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav ml-auto">
-
-        <a class="nav-item nav-link" href="watchlist">Watchlist</a>
-        <a class="nav-item nav-link" href="addwatches">Post Item</a>
-        {% if current_user.is_authenticated %}
-        <a class="nav-item nav-link disabled text-muted" href="#"><span>Welcome, {{ current_user.name }}</span></a>
-        <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
-        {% else %}
-        <a class="nav-item nav-link" href="{{ url_for('auth.register') }}">Register</a>
-        <a class="nav-item nav-link" href="{{ url_for('auth.login') }}">Log In</a>
-        {% endif %}
-      </div>
-    </div>
-
-  </div>
-  </nav>
+  {% block content %}
 
 </head>
 
 <div class="container-fluid">
+  <!-- Start a for loop that draws information from the database -->
+  {% for watch in watchlist %}
   <div class="row">
     <div class="col-md-4">
       <p></p>
@@ -91,12 +71,12 @@
     <div class="col-md-4">
       <div class="card">
         <div class="card-header">
-          2015 Rolex Submariner
+          {{watch.name}
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-            <p>Auction ends in:<br> 1d 11h 53m <br><br> Last Bid:<br> $2,675</p>
-            <footer class="blockquote-footer">Item added <cite title="Source Title">40mins ago</cite></footer>
+            <p>Auction ends in:<br> {{watch.timer}} <br><br> Last Bid:<br> ${{watch.price}}</p>
+          <footer class="blockquote-footer">Item added <cite title="Source Title">{{watch.age}}mins ago</cite></footer>
           </blockquote>
           <a href="itemdetails.html" class="btn btn-danger">View details & bid</a> <a href="#"
             class="btn btn-secondary">Remove from Watchlist</a>
@@ -117,70 +97,7 @@
       </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          2017 Rolex Rolex-Datejust
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Auction ends in:<br> 4d 1h 39m <br><br> Last Bid:<br> $967</p>
-            <footer class="blockquote-footer">Item added <cite title="Source Title">1d 11hr 20m ago</cite></footer>
-          </blockquote>
-          <a href="itemdetails.html" class="btn btn-danger">View details & bid</a> <a href="#"
-            class="btn btn-secondary">Remove from Watchlist</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="row">
-        <div class="column">
-          <img src="img/images1/Rolex-Datejust-41-126333-Baselworld-2016-Review-8.jpg" class="img-fluid"
-            alt="Responsive image" style="width: 280px">
-        </div>
-        <div class="column">
-          <img src="img/images1/rolex5.jpg" class="img-fluid" alt="Responsive image" style="width: 280px">
-        </div>
-        <div class="column">
-          <img src="img/images1/rolex6.jpg" class="img-fluid" alt="Responsive image" style="width: 280px">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header">
-          2015 Invicta Pro Diver
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Auction ends in:<br> 0d 1h 50m <br><br> Last Bid:<br> $55</p>
-            <footer class="blockquote-footer">Item added <cite title="Source Title">5mins ago</cite></footer>
-          </blockquote>
-          <a href="itemdetails.html" class="btn btn-danger">View details & bid</a> <a href="#"
-            class="btn btn-secondary">Remove from Watchlist</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="row">
-        <div class="column">
-          <img src="img/images1/invicta1.jpg" class="img-fluid" alt="Responsive image" style="width: 280px">
-        </div>
-        <div class="column">
-          <img src="img/images1/invicta2.jpg" class="img-fluid" alt="Responsive image" style="width: 280px">
-        </div>
-        <div class="column">
-          <img src="img/images1/invicta3.jpg" class="img-fluid" alt="Responsive image" style="width: 280px">
-        </div>
-      </div>
-    </div>
-  </div>
-
+  {% endfor %}
 
 </div>
 
@@ -199,3 +116,5 @@
 </body>
 
 </html>
+
+{% endblock %}
