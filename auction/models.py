@@ -18,7 +18,6 @@ class Watch(db.Model):
     name = db.Column(db.String(80))
     description = db.Column(db.String(200))
     image = db.Column(db.String(400))
-    comments = db.relationship('Comment', backref='watch')
     bids = db.relationship('Bid', backref='watch')
 
     def __repr__(self):  # string print method
