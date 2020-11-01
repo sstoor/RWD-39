@@ -36,7 +36,7 @@ def create():
     form = ItemcreateForm() 
     if form.validate_on_submit():
         db_file_path = check_upload_file(form)
-        Item = ItemcreateForm(make=form.make.data, description=form.description.data, 
+        Item = Itemcreate(make=form.make.data, description=form.description.data, 
                                      image=db_file_path, model=form.model.data, 
                                      movement=form.movement.data, year=form.year.data, 
                                      condition=form.condition.data, starting_bid=form.starting_bid.data)
@@ -46,7 +46,7 @@ def create():
     
         print('Successfully added your item', 'success')
 
-        return render_template('addwatches.html', form=form)
+        return render_template('homepage.html')
 
     else:
         return render_template('addwatches.html', form=form)
