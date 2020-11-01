@@ -17,9 +17,9 @@ def home():
 def search():
     #get the search string from request
     if request.args['search']:
-        dest = "%" + request.args['search'] + '%'
+        watc = "%" + request.args['search'] + '%'
          #use filter and like function to search for matching destinations
-        Items = Itemcreate.query.filter(Itemcreate.name.like(dest)).all()
+        Items = Itemcreate.query.filter(Itemcreate.name.like(watc)).all()
         #render index.html with few destinations
         return render_template('homepage.html', Items=Items)
     else:
@@ -27,7 +27,8 @@ def search():
 
 @bp.route('/homepage.html')
 def index():
-    return render_template('homepage.html')
+    Items = Itemcreate.query.all()
+    return render_template('homepage.html', Items=Items)
 
 @bp.route('/watchlist')
 def watchlist():
