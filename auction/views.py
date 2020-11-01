@@ -7,13 +7,10 @@ from .models import Itemcreate
 bp = Blueprint('main', __name__)
 
 
-
-
 @bp.route('/')
 def home():
     Items = Itemcreate.query.all()
     return render_template('homepage.html', Items=Items)
-
 
 
 @bp.route('/search')
@@ -31,11 +28,6 @@ def search():
 @bp.route('/homepage.html')
 def index():
     return render_template('homepage.html')
-
-
-@bp.route('/itemdetails')
-def itemdetails():
-    return render_template('itemdetails.html')
 
 @bp.route('/watchlist')
 def watchlist():

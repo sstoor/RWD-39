@@ -45,9 +45,9 @@ def create_app():
     from . import views
     app.register_blueprint(views.bp)
 
-
-
-
+    from . import watches
+    app.register_blueprint(watches.watch_bp)
+    
     from . import Itemcreate
     app.register_blueprint(Itemcreate.itemcreate_bp)
 
