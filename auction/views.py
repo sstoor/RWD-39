@@ -11,7 +11,8 @@ bp = Blueprint('main', __name__)
 
 @bp.route('/')
 def home():
-    return render_template('homepage.html')
+    Items = Itemcreate.query.all()
+    return render_template('homepage.html', Items=Items)
 
 
 
