@@ -32,17 +32,17 @@ class RegisterForm(FlaskForm):
 
 
 class ItemcreateForm(FlaskForm):
-		make = TextAreaField('Make', validators=[InputRequired()])
-		model = TextAreaField('Model', validators=[InputRequired()])
-		movement = TextAreaField('Movement', validators=[InputRequired()])
-		starting_bid = TextAreaField('Starting Bid', validators=[InputRequired()])
-		year = TextAreaField('Year', validators=[InputRequired()])
-		condition = TextAreaField('Condition', validators=[InputRequired()])
-		description = TextAreaField('Description', validators=[InputRequired()])
-		# adding two validators, one to ensure input is entered and other to check if the 
-		# description meets the length requirements
-		image = FileField('Destination Image', validators=[FileRequired(message='Image can not be empty'), FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
-		submit = SubmitField("Create")
+	make = TextAreaField('Make', validators=[InputRequired()])
+	model = TextAreaField('Model', validators=[InputRequired()])
+	movement = TextAreaField('Movement', validators=[InputRequired()])
+	starting_bid = TextAreaField('Starting Bid', validators=[InputRequired()])
+	year = TextAreaField('Year', validators=[InputRequired()])
+	condition = TextAreaField('Condition', validators=[InputRequired()])
+	description = TextAreaField('Description', validators=[InputRequired()])
+	# adding two validators, one to ensure input is entered and other to check if the 
+	# description meets the length requirements
+	image = FileField('Destination Image', validators=[FileRequired(message='Image can not be empty'), FileAllowed(ALLOWED_FILE, message='Only supports png, jpg, JPG, PNG')])
+	submit = SubmitField("Create")
 
 class CommentForm(FlaskForm):
 		text = TextAreaField('Comment', [InputRequired()])

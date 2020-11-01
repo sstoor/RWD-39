@@ -37,6 +37,9 @@ class Itemcreate(db.Model):
     year = db.Column(db.String(10))
     condition = db.Column(db.String(10))
 
+    def __repr__(self): 
+        return "<Make: {}>".format(self.make)
+
 
 class Comment(db.Model):
     __tablename__ = 'comments'

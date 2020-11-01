@@ -36,9 +36,12 @@ def create():
     form = ItemcreateForm() 
     if form.validate_on_submit():
         db_file_path = check_upload_file(form)
-        watch = ItemcreateForm(name=form.make.data, description=form.description.data, image=db_file_path, model=form.model.data, movement=form.movement.data, year=form.year.data, condition=form.condition.data)
+        Item = ItemcreateForm(make=form.make.data, description=form.description.data, 
+                                     image=db_file_path, model=form.model.data, 
+                                     movement=form.movement.data, year=form.year.data, 
+                                     condition=form.condition.data)
         
-        db.session.add(watch)
+        db.session.add(Item)
         db.session.commit()
     
         print('Successfully added your item', 'success')
